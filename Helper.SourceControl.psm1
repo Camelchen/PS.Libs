@@ -1,5 +1,12 @@
 [string]$gitProcess = "C:\Program Files\Git\bin\git.exe"
 
+function UpdateCode([string]$gitPath, [string]$branch) {
+
+    Set-Location "$gitPath"
+    & $gitProcess checkout $branch 
+    & $gitProcess pull origin $branch 
+}
+
 function GetCodeFromGit([string]$componentName, [string]$gitRepositoryHTTPS, [string]$branch) {
 
     $runtimeDatetime = (Get-Date -format "yyyyMMdd-HHmmss")
@@ -31,5 +38,7 @@ function GetCodeFromGit([string]$componentName, [string]$gitRepositoryHTTPS, [st
 }
 
 Export-ModuleMember -Function GetCodeFromGit
+Export-ModuleMember -Function UpdateCode
+
 
 

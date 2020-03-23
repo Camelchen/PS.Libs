@@ -1,4 +1,4 @@
-[string]$global:rootWorkDir = "D:\temp"
+[string]$global:rootWorkDir = "C:\Temp"
 
 function SetEvent ([string]$eventName){
     [string]$script:rootWorkDir = $global:rootWorkDir + "\"+$eventName
